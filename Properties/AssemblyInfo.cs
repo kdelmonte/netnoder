@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("NetNoder")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Start, monitor and communicate a node.js server from a .NET application")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Kelvin Del Monte")]
 [assembly: AssemblyProduct("NetNoder")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright (c) 2015 Kelvin Del Monte")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
