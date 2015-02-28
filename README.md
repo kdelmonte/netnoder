@@ -26,10 +26,10 @@ NetNoder allows you to start/stop and monitor a node.js express server from a .N
 	        Protocol = "http"
 	    }
 	});
-	
+
 ### Starting and stopping it
 
-	var success = nodeServer.Start();	
+	var success = nodeServer.Start();
 	if (success)
 	{
 	    Console.WriteLine("Node server started just fine at " + nodeServer.Address);
@@ -44,7 +44,7 @@ NetNoder allows you to start/stop and monitor a node.js express server from a .N
 
 ### Monitoring the server
 
-You can set up the server to be monitored  so that you may start it again if it goes down. Here is an example:
+You can set up the server to be monitored so that if the server exits for any reason, it will be restarted automatically. Here is an example:
 
 
 	var nodeServer = new NodeServer(new NodeServerSettings
@@ -61,7 +61,7 @@ You can set up the server to be monitored  so that you may start it again if it 
 		}
 	});
 
-	var success = nodeServer.Start();	
+	var success = nodeServer.Start();
 	if (success)
 	{
 	    Console.WriteLine("Node server started just fine at " + nodeServer.Address);
@@ -75,9 +75,11 @@ You can set up the server to be monitored  so that you may start it again if it 
 
 ### Options
 
-All options will be available in both .NET and node.js.
+All options are available in both .NET and node.js.
 
-- Data (**Dictionary<string, object>**) (*optional*): A dictionary meant that can be used for you to pass any data to the node.js application. Default: `null`
+
+
+- Data (**Dictionary[string, object]**) (*optional*): A dictionary meant that can be used for you to pass any data to the node.js application. Default: `null`
 - EntryPointFilePath (**string**) (*required*): JavaScript file that needs to be run.
 - KillPassword (**string**) (*optional*): Password sent to the node.js server in order to validate the kill action. This is to prevent anyone from killing the server.l
 - Location (**NodeServerLocation**) (*required*): this object allows you to specify host, port and protocol of the node.js server. Default: `null`
@@ -117,20 +119,18 @@ All options will be available in both .NET and node.js.
 	    console.log('Netnoder server listening on port ' + netnoder.location.host + ':' + netnoder.location.port);
 	});
 
-### Or start the using the express app
+### Or start using the express app
 
 	app.listen(netnoder.location.port, netnoder.location.host, function(){
 	    console.log('Netnoder server listening on port ' + netnoder.location.host + ':' + netnoder.location.port);
 	});
 
-### You can access all of the options and settings that you set on the .NET side:
+### You can access all of the options and settings from the .NET side:
 
 	console.log(netnoder.location.host) ==> "localhost"
 
 
 ### Methods
-
-**All methods are synchronous**.
 
 - listen([backlog], [callback]) - Starts listening on the host and port specified on the .NET side. This method call the express listen method so you can still pass all the arguments that you can pass to express; just remember to skip the host and port because those are passed automatically.
 
