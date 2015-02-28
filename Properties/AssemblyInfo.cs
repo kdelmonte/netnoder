@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("NetNoder")]
-[assembly: AssemblyDescription("Start, monitor and communicate a node.js server from a .NET application")]
+[assembly: AssemblyDescription("Start, stop and monitor a node.js server from a .NET application")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Kelvin Del Monte")]
 [assembly: AssemblyProduct("NetNoder")]
@@ -35,5 +35,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.1")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
