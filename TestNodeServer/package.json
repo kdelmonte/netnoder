@@ -1,0 +1,16 @@
+{
+  "name": "TestNodeServer",
+  "version": "0.0.0",
+  "description": "TestNodeServer",
+  "main": "app.js",
+  "author": {
+    "name": "kelvin.delmonte",
+    "email": ""
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*",
+    "netnoder": "*",
+    "stylus": "*"
+  }
+}
