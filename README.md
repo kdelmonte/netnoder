@@ -2,7 +2,7 @@
 
 NetNoder allows you to start/stop and monitor a node.js express server from a .NET application.
 
-# Installation
+## Installation
 
 ### nuget
 	Install-Package netnoder
@@ -10,9 +10,7 @@ NetNoder allows you to start/stop and monitor a node.js express server from a .N
 ### npm
 	npm install netnoder
 
-# Usage
-
-## On the .NET side
+## Usage on the .NET side
 
 ### Setting up the server
 
@@ -104,7 +102,7 @@ All options will be available in both .NET and node.js.
 - void StopMonitoring - Stops monitoring the node.js server.
 
 
-## On the node.js side
+## Usage on the node.js side
 
 ### Import express
 	var express = require('express');
@@ -136,10 +134,10 @@ All options will be available in both .NET and node.js.
 
 - listen([backlog], [callback]) - Starts listening on the host and port specified on the .NET side. This method call the express listen method so you can still pass all the arguments that you can pass to express; just remember to skip the host and port because those are passed automatically.
 
-# Contributing
+## Contributing
 
 If you would like to contribute, you may do so to the develop branch.
 
-# License
+## License
 
 [MIT](https://github.com/expressjs/body-parser/blob/master/LICENSE)
