@@ -79,7 +79,7 @@ All options are available in both .NET and node.js.
 
 
 
-- Data (**Dictionary[string, object]**) (*optional*): A dictionary meant that can be used for you to pass any data to the node.js application. Default: `null`
+- Data (**Dictionary[string, object]**) (*optional*): A dictionary that can be used to pass any data to the node.js application.
 - EntryPointFilePath (**string**) (*required*): JavaScript file that needs to be run.
 - KillPassword (**string**) (*optional*): Password sent to the node.js server in order to validate the kill action. This is to prevent anyone from killing the server.l
 - Location (**NodeServerLocation**) (*required*): this object allows you to specify host, port and protocol of the node.js server. Default: `null`
