@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -7,6 +8,7 @@ using System.Threading;
 using Microsoft.Build.Utilities;
 using NetNoder.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
 namespace NetNoder
@@ -14,6 +16,7 @@ namespace NetNoder
     public class NodeServer
     {
         public string CommandLineArguments { get; private set; }
+        public bool AutoCamelCase { get; set; }
         public NodeServerSettings Settings;
 
         public NodeServer(){}
@@ -91,8 +94,15 @@ namespace NetNoder
         protected void BuildCommandLineArguments()
         {
             var commandLineBuilder = new CommandLineBuilder();
-            commandLineBuilder.AppendFileNameIfNotNull(PrepareJsonForCommandLine(JsonConvertCamelCase(Settings)));
+            var json = JsonConvertCamelCase(Settings);
+            if (!AutoCamelCase)
+            {
+                var d = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+                d["data"] = Settings.Data;
+                json = JsonConvert.SerializeObject(d);
+            }
 
+            commandLineBuilder.AppendFileNameIfNotNull(PrepareJsonForCommandLine(json));
             CommandLineArguments = commandLineBuilder.ToString();
         }
 
@@ -169,7 +179,7 @@ namespace NetNoder
             http.Timeout = timeout;
 
             var encoding = new ASCIIEncoding();
-            var json = JsonConvertCamelCase(data ?? new {});
+            var json = JsonConvertCamelCase(data ?? new { });
             var bytes = encoding.GetBytes(json);
 
             var newStream = http.GetRequestStream();
@@ -187,6 +197,7 @@ namespace NetNoder
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver()
             });
+           
         }
 
         private static string PrepareJsonForCommandLine(string json)
