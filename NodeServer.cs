@@ -14,7 +14,7 @@ namespace NetNoder
     public class NodeServer
     {
         protected string CommandLineArguments;
-        public readonly NodeServerSettings Settings;
+        public NodeServerSettings Settings;
 
         public NodeServer(){}
 
