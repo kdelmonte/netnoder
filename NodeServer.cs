@@ -13,7 +13,7 @@ namespace NetNoder
 {
     public class NodeServer
     {
-        private string _commandLineArguments;
+        protected string CommandLineArguments;
         public readonly NodeServerSettings Settings;
 
         public NodeServer(){}
@@ -30,7 +30,7 @@ namespace NetNoder
         }
 
         public bool Monitoring { get; protected set; }
-        private Thread MonitoringThead { get; set; }
+        protected Thread MonitoringThead { get; set; }
 
         private Stream Post(string route, object data = null, int timeout = 100000)
         {
@@ -88,12 +88,12 @@ namespace NetNoder
             }
         }
 
-        private void BuildCommandLineArguments()
+        protected void BuildCommandLineArguments()
         {
             var commandLineBuilder = new CommandLineBuilder();
             commandLineBuilder.AppendFileNameIfNotNull(PrepareJsonForCommandLine(JsonConvertCamelCase(Settings)));
 
-            _commandLineArguments = commandLineBuilder.ToString();
+            CommandLineArguments = commandLineBuilder.ToString();
         }
 
         public bool Start()
@@ -107,11 +107,11 @@ namespace NetNoder
                     throw new Exception("Code file does not exist");
                 }
 
-                if (_commandLineArguments == null)
+                if (CommandLineArguments == null)
                 {
                     BuildCommandLineArguments();
                 }
-                var startupCommand = "node " + codeFile.Name + " --netnoder " + _commandLineArguments;
+                var startupCommand = "node " + codeFile.Name + " --netnoder " + CommandLineArguments;
 #if DEBUG
                 startupCommand += " --debug";
 #endif
@@ -155,7 +155,7 @@ namespace NetNoder
             }
         }
 
-        private string GetAddress()
+        protected string GetAddress()
         {
             return Settings.Location.Protocol + "://" + Settings.Location.Host +
                    (Settings.Location.Port == 0 ? "" : ":" + Settings.Location.Port) + "/";
