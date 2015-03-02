@@ -13,7 +13,7 @@ namespace NetNoder
 {
     public class NodeServer
     {
-        protected string CommandLineArguments;
+        public string CommandLineArguments { get; private set; }
         public NodeServerSettings Settings;
 
         public NodeServer(){}
