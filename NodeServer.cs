@@ -16,6 +16,8 @@ namespace NetNoder
         private string _commandLineArguments;
         public readonly NodeServerSettings Settings;
 
+        public NodeServer(){}
+
         public NodeServer(NodeServerSettings settings)
         {
             Settings = settings;
