@@ -134,8 +134,4 @@ All options are available in both .NET and node.js.
 
 ## Contributing
 
-If you would like to contribute, you may do so to the develop branch.
-
-## License
-
-[MIT](https://github.com/expressjs/body-parser/blob/master/LICENSE)
+If you would like to contribute, you may do so to the development branch.
