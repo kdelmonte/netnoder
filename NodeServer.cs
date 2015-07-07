@@ -15,7 +15,24 @@ namespace NetNoder
 {
     public class NodeServer
     {
-        public string CommandLineArguments { get; private set; }
+        public string CommandLineArguments
+        {
+            get
+            {
+                var commandLineBuilder = new CommandLineBuilder();
+                var json = JsonConvertCamelCase(Settings);
+                if (!AutoCamelCase)
+                {
+                    var d = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+                    d["data"] = Settings.Data;
+                    json = JsonConvert.SerializeObject(d);
+                }
+
+                commandLineBuilder.AppendFileNameIfNotNull(PrepareJsonForCommandLine(json));
+                return commandLineBuilder.ToString();
+            }
+        }
+
         public bool AutoCamelCase { get; set; }
         public NodeServerSettings Settings;
 
@@ -24,7 +41,6 @@ namespace NetNoder
         public NodeServer(NodeServerSettings settings)
         {
             Settings = settings;
-            BuildCommandLineArguments();
         }
 
         public string Address
@@ -91,21 +107,6 @@ namespace NetNoder
             }
         }
 
-        protected void BuildCommandLineArguments()
-        {
-            var commandLineBuilder = new CommandLineBuilder();
-            var json = JsonConvertCamelCase(Settings);
-            if (!AutoCamelCase)
-            {
-                var d = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
-                d["data"] = Settings.Data;
-                json = JsonConvert.SerializeObject(d);
-            }
-
-            commandLineBuilder.AppendFileNameIfNotNull(PrepareJsonForCommandLine(json));
-            CommandLineArguments = commandLineBuilder.ToString();
-        }
-
         public bool Start()
         {
             try
@@ -117,10 +118,6 @@ namespace NetNoder
                     throw new Exception("Code file does not exist");
                 }
 
-                if (CommandLineArguments == null)
-                {
-                    BuildCommandLineArguments();
-                }
                 var startupCommand = "node " + codeFile.Name + " --netnoder " + CommandLineArguments;
 #if DEBUG
                 startupCommand += " --debug";

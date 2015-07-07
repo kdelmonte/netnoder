@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using NetNoder;
@@ -24,6 +25,10 @@ namespace TestConsoleApplication
                     Host = "localhost",
                     Port = 9514,
                     Protocol = "http"
+                },
+                Data = new Dictionary<string, object>
+                {
+                    {"TestSetting", "Value"}
                 }
             });
 
