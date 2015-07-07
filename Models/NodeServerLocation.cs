@@ -2,8 +2,8 @@
 {
     public class NodeServerLocation
     {
-        public string Host;
-        public int Port;
-        public string Protocol;
+        public string Host { get; set; }
+        public int Port { get; set; }
+        public string Protocol { get; set; }
     }
 }

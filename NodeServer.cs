@@ -20,14 +20,7 @@ namespace NetNoder
             get
             {
                 var commandLineBuilder = new CommandLineBuilder();
-                var json = JsonConvertCamelCase(Settings);
-                if (!AutoCamelCase)
-                {
-                    var d = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
-                    d["data"] = Settings.Data;
-                    json = JsonConvert.SerializeObject(d);
-                }
-
+                var json = AutoCamelCase ? JsonConvertCamelCase(Settings) : JsonConvert.SerializeObject(Settings);
                 commandLineBuilder.AppendFileNameIfNotNull(PrepareJsonForCommandLine(json));
                 return commandLineBuilder.ToString();
             }
@@ -36,9 +29,12 @@ namespace NetNoder
         public bool AutoCamelCase { get; set; }
         public NodeServerSettings Settings;
 
-        public NodeServer(){}
+        public NodeServer()
+        {
+            AutoCamelCase = true;
+        }
 
-        public NodeServer(NodeServerSettings settings)
+        public NodeServer(NodeServerSettings settings): this()
         {
             Settings = settings;
         }

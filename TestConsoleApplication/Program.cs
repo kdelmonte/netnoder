@@ -16,7 +16,7 @@ namespace TestConsoleApplication
             // Setup node server
             var nodeServer = new NodeServer(new NodeServerSettings
             {
-                WindowStyle = ProcessWindowStyle.Maximized,
+                WindowStyle = ProcessWindowStyle.Normal,
                 EntryPointFilePath = @"C:\code\personal\github\netnoder\TestNodeServer\app.js",
                 KillPassword = "MyPasswordToStopServer",
                 MonitorInterval = 5000,

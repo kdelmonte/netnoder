@@ -6,8 +6,9 @@
     <Name>ExpressApp7</Name>
     <RootNamespace>ExpressApp7</RootNamespace>
     <NodeExePath />
-    <NodeExeArguments>--netnoder "{&lt;netnoderdq&gt;data&lt;netnoderdq&gt;:null,&lt;netnoderdq&gt;entryPointFilePath&lt;netnoderdq&gt;:&lt;netnoderdq&gt;C:\\code\\personal\\github\\netnoder\\TestNodeServer\\app.js&lt;netnoderdq&gt;,&lt;netnoderdq&gt;killPassword&lt;netnoderdq&gt;:&lt;netnoderdq&gt;MyPasswordToStopServer&lt;netnoderdq&gt;,&lt;netnoderdq&gt;location&lt;netnoderdq&gt;:{&lt;netnoderdq&gt;host&lt;netnoderdq&gt;:&lt;netnoderdq&gt;localhost&lt;netnoderdq&gt;,&lt;netnoderdq&gt;port&lt;netnoderdq&gt;:9514,&lt;netnoderdq&gt;protocol&lt;netnoderdq&gt;:&lt;netnoderdq&gt;http&lt;netnoderdq&gt;},&lt;netnoderdq&gt;expectedServerStartupTime&lt;netnoderdq&gt;:1000,&lt;netnoderdq&gt;sslPfxFilePath&lt;netnoderdq&gt;:null}"</NodeExeArguments>
-    <ScriptArguments />
+    <NodeExeArguments>
+    </NodeExeArguments>
+    <ScriptArguments>--netnoder "{&lt;netnoderdq&gt;data&lt;netnoderdq&gt;:{&lt;netnoderdq&gt;testSetting&lt;netnoderdq&gt;:&lt;netnoderdq&gt;Value&lt;netnoderdq&gt;},&lt;netnoderdq&gt;entryPointFilePath&lt;netnoderdq&gt;:&lt;netnoderdq&gt;C:\\code\\personal\\github\\netnoder\\TestNodeServer\\app.js&lt;netnoderdq&gt;,&lt;netnoderdq&gt;expectedServerStartupTime&lt;netnoderdq&gt;:1000,&lt;netnoderdq&gt;killPassword&lt;netnoderdq&gt;:&lt;netnoderdq&gt;MyPasswordToStopServer&lt;netnoderdq&gt;,&lt;netnoderdq&gt;location&lt;netnoderdq&gt;:{&lt;netnoderdq&gt;host&lt;netnoderdq&gt;:&lt;netnoderdq&gt;localhost&lt;netnoderdq&gt;,&lt;netnoderdq&gt;port&lt;netnoderdq&gt;:9514,&lt;netnoderdq&gt;protocol&lt;netnoderdq&gt;:&lt;netnoderdq&gt;http&lt;netnoderdq&gt;},&lt;netnoderdq&gt;monitorInterval&lt;netnoderdq&gt;:5000,&lt;netnoderdq&gt;windowStyle&lt;netnoderdq&gt;:3}"</ScriptArguments>
     <StartWebBrowser>True</StartWebBrowser>
     <LaunchUrl />
   </PropertyGroup>
@@ -25,7 +26,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <ProjectView>ShowAllFiles</ProjectView>
-    <NodejsPort>1337</NodejsPort>
+    <NodejsPort>
+    </NodejsPort>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
